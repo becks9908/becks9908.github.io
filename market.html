@@ -87,14 +87,14 @@ window.onload = function () {
       }
     }
   });
-  $.get("https://becks9908.github.io/DD.json", function(data) {
+  $.getJSON("https://becks9908.github.io/DD.json", function(data) {
     for(var i = 0; i < data.length; i++){
       dataPoints1.push({x: new Date(data[i].date), y: [Number(data[i].open), Number(data[i].high), Number(data[i].low), Number(data[i].close)], color: data[i].open < data[i].close ? "green" : "red"});;
       dataPoints2.push({x: new Date(data[i].date), y: Number(data[i].volume_eur), color: data[i].open < data[i].close ? "green" : "red"});
       dataPoints3.push({x: new Date(data[i].date), y: Number(data[i].close)});
     }
     stockChart.render();
-  }"json");
+  });
 }
 </script>
 </head>
